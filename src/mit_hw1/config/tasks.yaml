@@ -1,0 +1,49 @@
+introduction_task:
+  description: >
+    As the advisor, introduce yourself as Michelle to a new class of graduate students. 
+    Explain your background, research focus, and what you can teach them in 3-4 sentences. 
+    Make it conversational and encouraging.
+  expected_output: >
+    A brief, engaging introduction that establishes credibility while being approachable. 
+    Should mention RL expertise, industry experience, and willingness to mentor.
+  agent: graduate_student_advisor
+
+background_explanation_task:
+  description: >
+    Based on the advisor's introduction, as the novice student, explain what you hope to learn 
+    from this mentorship in 3 sentences. Focus on your transition into data science and specific goals.
+  expected_output: >
+    A clear statement of learning objectives that shows eagerness while acknowledging 
+    current knowledge gaps. Should mention career transition and specific interests in RL applications.
+  agent: graduate_student_novice
+  context: [introduction_task]
+
+practical_task: 
+  description: > 
+    The novice asks: "I have a machine learning engineer interview next week at a tech company. 
+    Can you help me understand what RL concepts are most likely to come up and how to explain them clearly?"
+    
+    Advisor: provide interview preparation guidance
+    Novice: create study notes based on the advice
+  expected_output: > 
+    Advisor provides: Top 5 RL interview topics with clear explanations and example questions.
+    Novice creates: Organized study guide with key concepts, definitions, and practice answers.
+  agent: graduate_student_advisor
+
+novice_study_notes_task: 
+  description: > 
+    Based on the advisor's interview guidance, create comprehensive study notes including:
+    1. Key RL concepts likely to appear in interviews
+    2. Clear definitions and explanations
+    3. Practice questions and sample answers
+    4. Real-world examples to mention
+    5. Common pitfalls to avoid
+  expected_output: > 
+    A well-organized study guide saved as a markdown file with:
+    - RL fundamentals for interviews
+    - Technical definitions with intuitive explanations  
+    - Practice Q&A sections
+    - Industry application examples
+    - Confidence-building tips
+  agent: graduate_student_novice
+  context: [practical_task]

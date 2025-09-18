@@ -1,0 +1,23 @@
+[project]
+name = "mit_hw1"
+version = "0.1.0"
+description = "mit_hw1 using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]>=0.186.1,<1.0.0"
+]
+
+[project.scripts]
+mit_hw1 = "mit_hw1.main:run"
+run_crew = "mit_hw1.main:run"
+train = "mit_hw1.main:train"
+replay = "mit_hw1.main:replay"
+test = "mit_hw1.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
